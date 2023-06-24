@@ -1,0 +1,154 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+        {
+            "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "#15C2CB",
+                    "properties": {
+                        "alpine": "\uf300",
+                        "arch": "\uf303",
+                        "centos": "\uf304",
+                        "debian": "\uf306",
+                        "elementary": "\uf309",
+                        "fedora": "\uf30a",
+                        "gentoo": "\uf30d",
+                        "linux": "\ue712",
+                        "macos": "\ue711",
+                        "manjaro": "\uf312",
+                        "mint": "\uf30f",
+                        "opensuse": "\uf314",
+                        "raspbian": "\uf315",
+                        "ubuntu": "\uf31c",
+                        "windows": "\ue70f"
+                    },
+                    "style": "plain",
+                    "template": "{{ if .WSL }}\ue712{{ end }}{{ .Icon }} ",
+                    "type": "os"
+                },
+                {
+                    "foreground": "#15C2CB",
+                    "properties": {
+                        "style": "folder"
+                    },
+                    "style": "plain",
+                    "template": "{{ .Path }} ",
+                    "type": "path"
+                },
+                {
+                    "foreground": "#F141A8",
+                    "properties": {
+                        "branch_icon": "\ue0a0 ",
+                        "fetch_stash_count": true,
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true,
+                        "fetch_worktree_count": true
+                    },
+                    "style": "plain",
+                    "template": "<#F3EFF5>on</> {{ .HEAD }}{{if .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+                    "type": "git"
+                },
+                {
+                    "foreground": "#D6DEEB",
+                    "properties": {
+                        "style": "roundrock",
+                        "threshold": 0
+                    },
+                    "style": "plain",
+                    "template": " {{ .FormattedMs }}",
+                    "type": "executiontime"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "right",
+            "segments": [
+                {
+                    "background": "#1c9c40",
+                    "foreground": "#000000",
+                    "properties": {
+                        "paused_icon": "\uf04c ",
+                        "playing_icon": "\ue602 ",
+                        "stopped_icon": "\uf04d ",
+                        "track_separator": " - "
+                    },
+                    "style": "plain",
+                    "template": " {{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }} ",
+                    "type": "spotify"
+                },
+                {
+                    "foreground": "#5fb157",
+                    "properties": {
+                        "display_mode": "files",
+                        "fetch_package_manager": true,
+                        "fetch_version": true,
+                        "npm_icon": "<#FE4A49>\ue71e npm</> ",
+                        "yarn_icon": "<#44FFD2>\uf487 yarn</> "
+                    },
+                    "style": "plain",
+                    "template": " {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}\ue718 {{ .Full }}",
+                    "type": "node"
+                },
+                {
+                    "foreground": "#4063D8",
+                    "properties": {
+                        "fetch_version": true
+                    },
+                    "style": "plain",
+                    "template": " 󰟓 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+                    "type": "go"
+                },
+                {
+                    "foreground": "#FED142",
+                    "properties": {
+                        "display_mode": "context",
+                        "fetch_virtual_env": false
+                    },
+                    "style": "plain",
+                    "template": " 󰌠 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+                    "type": "python"
+                },
+                {
+                    "foreground": "#af7b1a",
+                    "properties": {
+                        "display_mode": "context",
+                        "fetch_virtual_env": false
+                    },
+                    "style": "plain",
+                    "template": " 󱘗 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+                    "type": "rust"
+                },
+                {
+                    "foreground": "#0c7ba7",
+                    "style": "diamond",
+                    "template": " 󰍛 {{ round .PhysicalPercentUsed .Precision }}%",
+                    "type": "sysinfo"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "foreground": "#e0f8ff",
+                    "foreground_templates": [
+                        "{{ if gt .Code 0 }}#ef5350{{ end }}"
+                    ],
+                    "properties": {
+                        "always_enabled": true
+                    },
+                    "style": "plain",
+                    "template": "\u276f",
+                    "type": "exit"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "final_space": true,
+    "version": 2
+}
