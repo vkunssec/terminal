@@ -5,6 +5,12 @@ Import-Module oh-my-posh
 Import-Module posh-git
 
 
+Import-Module PSReadLine
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+
+
+
 # modulo de icones
 Import-Module -Name Terminal-Icons
 
@@ -16,3 +22,4 @@ oh-my-posh init pwsh --config 'C:\Users\victo\Documents\WindowsPowerShell\Micros
 
 # limpar terminal
 Clear-Host
+
