@@ -58,26 +58,61 @@
                     "style": "plain",
                     "template": " {{ .FormattedMs }}",
                     "type": "executiontime"
+                },
+                {
+                    "foreground": "#5fb157",
+                    "properties": {
+                        "display_mode": "files",
+                        "fetch_package_manager": true,
+                        "fetch_version": true,
+                        "npm_icon": "<#FE4A49>\ue71e npm</> ",
+                        "yarn_icon": "<#44FFD2>\uf487 yarn</> "
+                    },
+                    "style": "plain",
+                    "template": " {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}\ue718 {{ .Full }}",
+                    "type": "node"
+                },
+                {
+                    "foreground": "#4063D8",
+                    "properties": {
+                        "fetch_version": true
+                    },
+                    "style": "plain",
+                    "template": " 󰟓 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+                    "type": "go"
+                },
+                {
+                    "foreground": "#FED142",
+                    "properties": {
+                        "display_mode": "context",
+                        "fetch_virtual_env": false
+                    },
+                    "style": "plain",
+                    "template": " 󰌠 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+                    "type": "python"
+                },
+                {
+                    "foreground": "#af7b1a",
+                    "properties": {
+                        "display_mode": "context",
+                        "fetch_virtual_env": false
+                    },
+                    "style": "plain",
+                    "template": " 󱘗 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
+                    "type": "rust"
+                },
+                {
+                    "foreground": "#0c7ba7",
+                    "style": "diamond",
+                    "template": " 󰍛 {{ round .PhysicalPercentUsed .Precision }}%",
+                    "type": "sysinfo"
                 }
             ],
             "type": "prompt"
         },
         {
-            "alignment": "right",
+            "alignment": "",
             "segments": [
-                {
-                    "background": "#1c9c40",
-                    "foreground": "#000000",
-                    "properties": {
-                        "paused_icon": "\uf04c ",
-                        "playing_icon": "\ue602 ",
-                        "stopped_icon": "\uf04d ",
-                        "track_separator": " - "
-                    },
-                    "style": "plain",
-                    "template": " {{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }} ",
-                    "type": "spotify"
-                },
                 {
                     "foreground": "#5fb157",
                     "properties": {
